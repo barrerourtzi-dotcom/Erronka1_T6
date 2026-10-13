@@ -19,8 +19,6 @@ Instalatuta dituen rolak hauek dira:
 | Rola | Zergatik instalatu dugun |
 |---|---|
 | AD DS | Direktorioa da. Erabiltzaileak zerbitzarian egiaztatzen dira, ez ekipo bakoitzean. |
-| DNS | Active Directoryk behar du, bezeroek domeinua aurki dezaten. |
-| DHCP | Bezero bakoitzean sarea eskuz ez konfiguratzeko. |
 | Fitxategi-zerbitzaria | LANGILEAK karpeta partekaturako; hor daude sailen karpetak eta karpeta pertsonalak. |
 | Inprimaketa-zerbitzaria | Inprimagailuak zerbitzaritik partekatzeko. |
 
