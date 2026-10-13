@@ -26,18 +26,6 @@ Instalatuta dituen rolak hauek dira:
 
 ![Zerbitzariaren panela, instalatutako rolekin](Irudiak/01-zerbitzari-panela.png)
 
-DHCParen esparruak 192.168.10.51 helbidetik 192.168.10.250 helbidera banatzen du, egun bateko alokairuarekin. 51tik beherako helbideak kanpoan utzi ditugu IP finkoa duten ekipoentzat, zerbitzaria adibidez.
-
-![DHCP esparruaren helbide-tartea](Irudiak/02-dhcp-tartea.png)
-
-![DHCP esparruaren aukerak: atebidea, DNS eta domeinua](Irudiak/03-dhcp-aukerak.png)
-
-DNSan core.lan zona dago, eta 192.168.10 sarearen alderantzizko zona.
-
-![DNS zonak](Irudiak/05-dns-zonak.png)
-
-![core.lan zonaren erregistroak](Irudiak/06-dns-erregistroak.png)
-
 ### 1.3 Ekipoak
 
 | Ekipoa | Funtzioa | IPa | Administrari kontua |
@@ -95,8 +83,6 @@ Bi Windows 11 sartu ditugu domeinuan: WIN11BEZ1 eta WIN11BEZ2. IPa zerbitzariare
 WIN11BEZ1 ekipoaren kontua IT OUra eraman dugu. WIN11BEZ2 ekipoarena Computers edukiontzian dago oraindik; ekipo bat domeinuan sartzean hor agertzen da.
 
 ![WIN11BEZ1 ekipoa IT OUan](Irudiak/13-it-ou-bezeroa.png)
-
-![WIN11BEZ1 ekipoaren helbidea DHCPan](Irudiak/04-dhcp-alokairuak.png)
 
 ## 4. Talde-gidalerroak
 
