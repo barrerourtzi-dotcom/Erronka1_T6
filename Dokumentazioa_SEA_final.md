@@ -24,17 +24,27 @@ Instalatuta dituen rolak hauek dira:
 | Fitxategi-zerbitzaria | LANGILEAK karpeta partekaturako; hor daude sailen karpetak eta karpeta pertsonalak. |
 | Inprimaketa-zerbitzaria | Inprimagailuak zerbitzaritik partekatzeko. |
 
+![Zerbitzariaren panela, instalatutako rolekin](irudiak/01-zerbitzari-panela.png)
+
 DHCParen esparruak 192.168.10.51 helbidetik 192.168.10.250 helbidera banatzen du, egun bateko alokairuarekin. 51tik beherako helbideak kanpoan utzi ditugu IP finkoa duten ekipoentzat, zerbitzaria adibidez.
 
+![DHCP esparruaren helbide-tartea](irudiak/02-dhcp-tartea.png)
+
+![DHCP esparruaren aukerak: atebidea, DNS eta domeinua](irudiak/03-dhcp-aukerak.png)
+
 DNSan core.lan zona dago, eta 192.168.10 sarearen alderantzizko zona.
+
+![DNS zonak](irudiak/05-dns-zonak.png)
+
+![core.lan zonaren erregistroak](irudiak/06-dns-erregistroak.png)
 
 ### 1.3 Ekipoak
 
 | Ekipoa | Funtzioa | IPa | Administrari kontua |
 |---|---|---|---|
 | WS_T6 | Domeinu-kontrolatzailea | 192.168.10.1 | CORE\Administrador |
-| WIN11BEZ1 | Windows 11 bezeroa | DHCP bidez | |
-| WIN11BEZ2 | Windows 11 bezeroa | DHCP bidez | |
+| WIN11BEZ1 | Windows 11 bezeroa | 192.168.10.40 (DHCP erreserba) | |
+| WIN11BEZ2 | Windows 11 bezeroa | 192.168.10.102 (DHCP) | |
 | pfSense | Bideratzailea eta suebakia | 192.168.10.254 | |
 
 ## 2. Antolakuntza-unitateak, erabiltzaileak eta taldeak
@@ -42,6 +52,8 @@ DNSan core.lan zona dago, eta 192.168.10 sarearen alderantzizko zona.
 ### 2.1 Antolakuntza-unitateak
 
 Core izeneko OU bat sortu dugu, eta haren barruan bat sail bakoitzeko: IT, Finantzak, Giza Baliabideak eta Erosketak. Taldeak izeneko OU bat ere badago, talde guztiekin.
+
+![OUen zuhaitza Active Directoryn](irudiak/07-ou-zuhaitza.png)
 
 Core OUa enpresarena Active Directoryk dakartzan edukiontzietatik bereizteko dago, eta denentzako gidalerroak hor behin bakarrik estekatzen direlako. Sailen OUak daude sail bakoitzak gidalerro desberdinak behar ditzakeelako. Taldeak aparte jarri ditugu Taldeak OUan, erabiltzaileekin nahastuta ez edukitzeko.
 
@@ -66,15 +78,31 @@ Arduradunak taldea arduradunentzat da. Oraingoz Urtzi bakarrik dago.
 
 Kontuek izenaren lehen letra eta abizena dituzte.
 
+![Finantzak OUko erabiltzaileak](irudiak/08-finantzak-ou.png)
+
+![Taldeak OUko segurtasun-taldeak](irudiak/09-taldeak-ou.png)
+
+![Finantzak taldeko kideak](irudiak/10-finantzak-kideak.png)
+
+![Giza Baliabideak taldeko kideak](irudiak/11-giza-baliabideak-kideak.png)
+
+![Erosketak taldeko kideak](irudiak/12-erosketak-kideak.png)
+
 ## 3. Bezeroak
 
 Bi Windows 11 sartu ditugu domeinuan: WIN11BEZ1 eta WIN11BEZ2. IPa zerbitzariaren DHCPtik hartzen dute, beraz haren tarte berean daude.
 
 WIN11BEZ1 ekipoaren kontua IT OUra eraman dugu. WIN11BEZ2 ekipoarena Computers edukiontzian dago oraindik; ekipo bat domeinuan sartzean hor agertzen da.
 
+![WIN11BEZ1 ekipoa IT OUan](irudiak/13-it-ou-bezeroa.png)
+
+![WIN11BEZ1 ekipoaren helbidea DHCPan](irudiak/04-dhcp-alokairuak.png)
+
 ## 4. Talde-gidalerroak
 
 Bost GPO sortu ditugu. Denak erabiltzailearen konfiguraziokoak dira, aldatzen dena saioa nork hasten duen araberakoa delako eta ez ekipoaren araberakoa.
+
+![Core OUari estekatutako GPOak](irudiak/14-gpo-estekak.png)
 
 ### 4.1 Pantailako atzeko planoa
 
@@ -82,21 +110,29 @@ Erabiltzaile guztientzako gidalerroa da eta Core OUari estekatuta dago. Bi arau 
 
 Ekipo guztiek enpresaren atzeko planoa izateko egin dugu, erabiltzaileak aldatu ezin duena. Active Desktop araua dago JPEG irudi bat erabiltzea horrek uzten duelako. Irudia zerbitzariko karpeta partekatu batean dago, bezero guztiak bertara irits daitezen.
 
+![Pantailako atzeko planoa GPOaren konfigurazioa](irudiak/15-gpo-atzeko-planoa.png)
+
 ### 4.2 Mapeatu
 
 Talde konkretuentzako gidalerroa da. P: unitatea saileko karpetara konektatzen du, \\\\Ws_t6\langileak\Departamentuak barruan. Sarrera bat du sail bakoitzeko, eta sarrera bakoitzak elementu-mailako iragazki bat du segurtasun-taldearekin. Finantzak taldeko erabiltzaile batek Finantzak karpeta du P: unitatean, eta Erosketak taldeko batek Erosketak karpeta.
 
 Core OUari estekatuta dago. GPO bakarra erabili dugu taldekako iragazkiekin, OU bakoitzean GPO bat jarri beharrean, horrela gidalerro bakarra dagoelako mantentzeko; erabiltzaile bat sailez aldatzen bada, taldez aldatzea nahikoa da.
 
+![Mapeatu GPOa: P unitatea eta taldearen iragazkia](irudiak/16-gpo-mapeatu.png)
+
 ### 4.3 MapeatuPertsonala
 
 Erabiltzaile bakoitzaren karpeta pertsonala sortzen du \\\\Ws_t6\langileak\Pertsonalak karpetan, bere kontuaren izenarekin. %username% aldagaia erabili dugu karpetak banan-banan ez sortzeko. Erabiltzailearen beraren baimenekin exekutatzen da, karpeta bere izenean gera dadin.
+
+![MapeatuPertsonala GPOaren konfigurazioa](irudiak/17-gpo-mapeatu-pertsonala.png)
 
 ### 4.4 IMP_Finantzak eta IMP_GizaBaliabideak
 
 Saileko inprimagailu partekatua instalatzen dute. IMP_Finantzak gidalerroak \\\\WS_T6\Finantzak_Imprimagailua konektatzen du eta Core OUari estekatuta dago. IMP_GizaBaliabideak gidalerroak \\\\WS_T6\GizaBaliabideak_Imprimagailua konektatzen du eta oraindik ez dago estekatuta.
 
 GPO bidez egin ditugu, erabiltzaileak saioa hastean inprimagailua izan dezan ezer instalatu gabe.
+
+![IMP_Finantzak GPOaren konfigurazioa](irudiak/18-gpo-imp-finantzak.png)
 
 ## 5. Inprimaketa
 
@@ -109,11 +145,17 @@ Bi inprimagailu instalatu ditugu WS_T6 zerbitzarian, bat finantzetarako eta best
 | Finantzak_Imprimagailua | Finantzak | IMP_F (lokala) | Generic / Text Only |
 | GizaBaliabideak_Imprimagailua | Giza Baliabideak | IMP_GB (lokala) | Generic / Text Only |
 
-Portu lokalak eta kontrolatzaile generikoa erabili ditugu, ingurune birtualean ez dagoelako inprimagailu fisikorik. Biak beren izenarekin partekatuta daude eta direktorioan argitaratuta, bezeroetatik bilatu ahal izateko.
+Portu lokalak eta kontrolatzaile generikoa erabili ditugu, ingurune birtualean ez dagoelako inprimagailu fisikorik. Biak partekatuta daude eta direktorioan argitaratuta, bezeroetatik bilatu ahal izateko.
+
+![Inprimaketaren administrazioa, bi inprimagailuekin](irudiak/19-inprimagailuak.png)
+
+![Finantzak_Imprimagailua partekatzeko aukerak](irudiak/20-inprimagailua-partekatu.png)
 
 ### 5.2 Baimenak
 
 Bi inprimagailuek berezko baimena dute oraindik, eta horrekin Todos taldeak inprimatzen du. Dagozkien baimenak hauek dira: inprimatu, saileko taldeak; dokumentuak administratu, Arduradunak taldeak; inprimagailua administratu, IT taldeak eta administratzaileek.
+
+![Finantzak_Imprimagailua inprimagailuaren segurtasuna](irudiak/21-inprimagailua-segurtasuna.png)
 
 ### 5.3 Portuak eta protokoloak
 
