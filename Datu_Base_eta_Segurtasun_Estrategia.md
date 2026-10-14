@@ -44,25 +44,25 @@ Negozioaren jarraitutasuna bermatzeko eta legezko araudia betetzeko, ondorengo s
 
 ## 4. Erabiltzaileak eta Baimenak
 
-![Erabiltzaileak sortzeko komandoa](irudiak/25-Erabiltzailea-sortu.png)
+![Erabiltzaileak sortzeko komandoa](Irudiak/25-Erabiltzailea-sortu.png)
 
 Erabiltzaileak sortzeko komando hau erabili dugu.
 
-![IT erabiltzailearekin datu-basera sartzea](irudiak/26-Erabiltzailea-sortuta.png)
+![IT erabiltzailearekin datu-basera sartzea](Irudiak/26-Erabiltzailea-sortuta.png)
 
 Hemen ikus dezakezue nola sartzen den IT erabiltzailetik gure datu-basera.
 
-![Datu-basearen barruan sortutako erabiltzaileak](irudiak/27-Core-Erab.png)
+![Datu-basearen barruan sortutako erabiltzaileak](Irudiak/27-Core-Erab.png)
 
 Erabiltzaile desberdinak sortu ditugu datu-basearen barruan. Erabiltzaile bakoitzak baimen desberdinak izango ditu. Adibidez, IT-k datu-basea aldatzeko aukera izango du, giza baliabideak eta erosketakoek aldiz ikusteko soilik.
 
-![IT erabiltzaileari emandako baimenak](irudiak/22-IT-baimenak.png)
+![IT erabiltzaileari emandako baimenak](Irudiak/22-IT-baimenak.png)
 
 Hemen ikus dezakezun bezala, baimen guztiak eman dizkiogu IT-ko erabiltzaileari.
 
-![Giza baliabideen erabiltzailearen baimenak](irudiak/23-GB-baimenak.png)
+![Giza baliabideen erabiltzailearen baimenak](Irudiak/23-GB-baimenak.png)
 
-![Erosketen erabiltzailearen baimenak](irudiak/24-Erosketak-baimenak.png)
+![Erosketen erabiltzailearen baimenak](Irudiak/24-Erosketak-baimenak.png)
 
 Hemen aldiz, giza baliabideetakoei eta erosketakoei datu-basea ikusteko baimena soilik eman diegu.
 
