@@ -111,9 +111,63 @@ Tiketak ekipoekin lotu ditugu, horrela ekipo bakoitzaren fitxan bere arazoen his
 
 ![1. tiketa](Irudiak/glpi-06-tiketa.jpg)
 
-## 2. GitHub biltegia eta GitHub Pages
+## 2. WordPress
 
-### 2.1 Biltegia
+### 2.1 Webgunearen erabilera
+
+WordPress Core enpresaren web orria da. Core inguruko ekoizleen produktu ekologikoak saltzen dituen supermerkatua da, eta webguneak ekoizleak, produktuak eta bezeroen eskaerak erakusten ditu. Helbidea http://www.core.eus da.
+
+WordPress aukeratu dugu webgunea panel batetik kudeatzen delako, programatu gabe, eta eduki mota propioak sor daitezkeelako. Erabilera bakoitzari eduki mota bat dagokio:
+
+| Eduki mota | Zertarako |
+|---|---|
+| Ekoizleak | Produktuak ematen dizkiguten baserri eta kooperatibak, eta dendatik duten distantzia |
+| Produktuak | Salgai dauden produktuak |
+| Eskaerak | Bezeroek egindako eskaerak |
+| Inkesta erantzunak | Bezeroen iritzi-inkestaren erantzunak |
+| Dokumentuak | Enpresaren dokumentuak |
+
+![Core-ren webgunea www.core.eus helbidean](Irudiak/wae-01-wordpress-portada.png)
+
+### 2.2 Instalazioa
+
+| Parametroa | Balioa |
+|---|---|
+| Zerbitzaria | Ubuntu Server (USWordpress makina, servidor ostalari-izena) |
+| IPa | 192.168.10.2 |
+| Helbidea | http://www.core.eus |
+| Karpeta | /srv/www/wordpress |
+| WordPress bertsioa | 7.1.3 |
+| PHP | 7.4.3 |
+| Datu-basea | wordpress, localhost-en |
+| Datu-baseko erabiltzailea | wordpress |
+| Karaktere-jokoa | utf8mb4 |
+
+WordPress lehenengo aldiz IP helbidetik instalatu genuen, eta horregatik www.core.eus izenarekin sartzean IPra birbideratzen zuen. Konpontzeko, wp-config.php fitxategian WP_HOME eta WP_SITEURL konstanteak gehitu ditugu http://www.core.eus balioarekin. DNSan core.eus zonako www erregistroak 192.168.10.2 helbidera eramaten du (ikusi SZI dokumentazioa).
+
+![wp-config.php: helbidea eta datu-basearen parametroak](Irudiak/wae-05-wp-config.png)
+
+### 2.3 Erabiltzaileak
+
+| Erabiltzailea | Posta | Rola |
+|---|---|---|
+| Admin | administrador@uni.eus | Administratzailea |
+| barrero.urtzi | barrero.urtzi@uni.eus | Administratzailea |
+
+Admin instalazioan sortutako kontua da. barrero.urtzi webgunea egunero kudeatzeko erabiltzen dugu, instalazioko kontua erabili gabe.
+
+![WordPress-eko erabiltzaileak](Irudiak/wae-02-wordpress-erabiltzaileak.png)
+
+### 2.4 Gaiak
+
+Zazpi gai instalatu eta probatu ditugu, tartean General Food Store, Twenty Twenty-Five, Twenty Twenty-Four eta Twenty Twenty-Three. General Food Store elikagai-dendetarako gaia da, gure enpresaren antzekoa. Azkenean Core izeneko gai propioa aktibatu dugu, enpresaren koloreekin eta diseinuarekin.
+
+![Gai aktiboa: Core](Irudiak/wae-03-wordpress-gai-aktiboa.png)
+
+![Instalatutako beste gaiak](Irudiak/wae-04-wordpress-gaiak.png)
+## 3. GitHub biltegia eta GitHub Pages
+
+### 3.1 Biltegia
 
 Erronkaren dokumentazio guztia GitHub-eko biltegi batean dago: https://github.com/barrerourtzi-dotcom/Erronka1_T6
 
@@ -121,7 +175,7 @@ Biltegi bakarra erabiltzen dugu taldekide guztiok, dokumentazio guztia leku bate
 
 Modulu bakoitzak bere adarra du: SEA, SZI eta Hardware. Modulu bakoitzeko lana bere adarrean egiten dugu eta, bukatuta dagoenean, main adarrera batzen dugu. Horrela taldekide batek bere moduluan lan egin dezake besteen lana hautsi gabe, eta main adarrean zuzendutako bertsioa bakarrik dago.
 
-### 2.2 Biltegiaren egitura
+### 3.2 Biltegiaren egitura
 
 ```
 Erronka1_T6/
@@ -129,29 +183,34 @@ Erronka1_T6/
 ├── _config.yml                                GitHub Pages-en konfigurazioa
 ├── Dokumentazioa_SEA.md                       Sistema eragileen administrazioa
 ├── Dokumentazioa_SB.md                        Sistema banatuak (Proxmox)
-├── Dokumentazioa_WAE.md                       Web aplikazioak (GLPI, GitHub eta plangintza)
+├── Dokumentazioa_WAE.md                       Web aplikazioak (GLPI, WordPress, GitHub eta plangintza)
 ├── Datu_Base_eta_Segurtasun_Estrategia.md     Datu-baseak eta segurtasuna
 ├── Dokumentazioa_HW.md                        Hardwarea: aurrekostua, osagaiak eta tailerra
+├── Dokumentazioa_SZI.md                       Sareko zerbitzuak
+├── Jasangarritasun_Plana-Core.md              Jasangarritasun plana
+├── index.md                                   Webgunearen hasierako orria
+├── _layouts/ eta assets/                      Webgunearen diseinua
+├── _data/nav.yml                              Alboko barraren menua
 └── Irudiak/                                   Dokumentuetako kaptura guztiak
 ```
 
-Modulu bakoitzak bere .md fitxategia du, eta kaptura guztiak Irudiak karpetan daude. Irudien izenak modulu bakoitzaren aurrizkiarekin hasten dira (sb-, glpi-), horrela karpetan erraz bereizten direlako.
+Modulu bakoitzak bere .md fitxategia du, eta kaptura guztiak Irudiak karpetan daude. Irudien izenak modulu bakoitzaren aurrizkiarekin hasten dira (sb-, glpi-, wae-, sea-), horrela karpetan erraz bereizten direlako.
 
 Dokumentu guztiek egitura bera dute: izenburua, atal zenbakituak, taulak datuentzat eta kaptura bakoitza dagokion azalpenaren ondoan.
 
-### 2.3 GitHub Pages
+### 3.3 GitHub Pages
 
 Biltegia GitHub Pages bidez argitaratu dugu, dokumentazioa web orri gisa irakurtzeko GitHub-en kontua izan gabe: https://barrerourtzi-dotcom.github.io/Erronka1_T6/
 
-Settings, Pages atalean main adarra eta erro karpeta aukeratu ditugu. GitHub-ek .md fitxategiak HTML orri bihurtzen ditu Jekyll-ekin. _config.yml fitxategian Cayman gaia jarri dugu, orriak irakurtzeko errazagoak izan daitezen.
+Settings, Pages atalean main adarra eta erro karpeta aukeratu ditugu. GitHub-ek .md fitxategiak HTML orri bihurtzen ditu Jekyll-ekin. Diseinu propioa egin dugu: _layouts/default.html txantiloiak alboko barra bat jartzen du orri guztietan, eta assets/css/erronka.css fitxategiak itxura ematen dio. Alboko barrako menua _data/nav.yml fitxategian dago; dokumentu berri bat gehitzeko nahikoa da hor sarrera bat gehitzea.
 
-README.md fitxategia hasierako orria da. Bertan dago dokumentu guztietarako esteka duen aurkibidea, eta hortik edozein ataletara heltzen da klik batekin.
+index.md fitxategia webgunearen hasierako orria da, ikasgai bakoitzeko txartel batekin. README.md fitxategiak aurkibide bera erakusten du GitHub-en bertan. Alboko barran uneko dokumentuaren atalak ere agertzen dira, eta hortik edozein ataletara heltzen da klik batekin.
 
-## 3. Plangintza
+## 4. Plangintza
 
 T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 
-### 3.1 Zereginak
+### 4.1 Zereginak
 
 #### SEA: Sistema eragileen administrazioa
 
@@ -165,7 +224,8 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | Inprimagailuak Windows Server-en partekatu | Eginda |
 | Inprimagailuen baimenak saileko taldeei eman | Egiteke |
 | Zerbitzuak eta prozesuak kudeatu (IE2) | Egiteke |
-| Inprimaketa Linuxen CUPSekin eta sistemen artean | Egiteke |
+| Bezeroaren ebidentziak (IP, GPOak, unitateak) | Eginda |
+| Inprimaketa Linuxen CUPSekin eta sistemen artean | Egiten |
 
 #### SB: Sistema banatuak
 
@@ -186,7 +246,9 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | Ekipoak, lizentziak eta tiketak erregistratu | Eginda |
 | GLPI erabiltzaileak profilekin sortu | Eginda |
 | GitHub biltegia eta adarrak sortu | Eginda |
-| GitHub Pages argitaratu | Egiteke |
+| GitHub Pages argitaratu | Eginda |
+| WordPress instalatu eta www.core.eus helbidean jarri | Eginda |
+| WordPress erabiltzaileak rol desberdinekin | Egiteke |
 
 #### Hardwarea
 
@@ -195,7 +257,7 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | Hardware eta lizentzien aurrekostua | Eginda |
 | Osagaien dokumentazioa | Eginda |
 
-### 3.2 Erronkan zehar egindako aldaketak
+### 4.2 Erronkan zehar egindako aldaketak
 
 | Aldaketa | Zergatia |
 |---|---|
@@ -203,3 +265,4 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | Aurrekostuan 2 bezero izatetik 10 izatera pasa gara | Domeinuan 10 erabiltzaile daude eta bakoitzak bere ordenagailua behar du |
 | CT102 edukiontzia zerbitzurik gabe utzi dugu | Irakasleak esan digu nahikoa dela edukiontzia sortzea |
 | GLPI pfSense-ren barneko sarera eramatea erabaki dugu | GLPI zuzenean ikastetxeko sarean zegoen, suebakirik gabe |
+| WordPress-en helbidea IPtik www.core.eus izenera aldatu dugu wp-config.php fitxategian | IPtik instalatu zenez, izenarekin sartzean IPra birbideratzen zuen |

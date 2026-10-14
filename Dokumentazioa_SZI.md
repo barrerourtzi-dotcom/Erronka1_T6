@@ -4,7 +4,19 @@ T6 taldea. core.lan domeinua.
 
 ## 1. DHCP
 
-DHCParen esparruak 192.168.10.51 helbidetik 192.168.10.250 helbidera banatzen du, egun bateko alokairuarekin. 51tik beherako helbideak kanpoan utzi ditugu IP finkoa duten ekipoentzat, zerbitzaria adibidez.
+DHCP zerbitzua WS_T6 domeinu-kontrolatzailean dago, DNS eta Active Directory dauden zerbitzari berean. Domeinuko zerbitzari batean dagoenez, Active Directoryn baimendu behar izan dugu martxan jarri aurretik.
+
+| Parametroa | Balioa |
+|---|---|
+| Esparrua | 192.168.10.0/24 |
+| Helbide-tartea | 192.168.10.51 – 192.168.10.250 |
+| Alokairua | Egun 1 |
+| 003 Bideratzailea | 192.168.10.254 (pfSense) |
+| 006 DNS zerbitzariak | 192.168.10.1 (WS_T6) |
+| 015 DNS domeinu-izena | core.lan |
+| Erreserba | WIN11BEZ1, 192.168.10.40 |
+
+51tik beherako helbideak tartetik kanpo utzi ditugu IP finkoa duten ekipoentzat: WS_T6 (.1), www zerbitzaria (.2), Jitsi (.3) eta pfSense (.254). Aukerei esker bezeroek atebidea, DNSa eta domeinua jasotzen dituzte, eta ez da ezer eskuz konfiguratu behar. WIN11BEZ1 ekipoari erreserba bat egin diogu, beti helbide bera izan dezan.
 
 ![DHCP esparruaren helbide-tartea](Irudiak/02-dhcp-tartea.png)
 
@@ -14,11 +26,24 @@ DHCParen esparruak 192.168.10.51 helbidetik 192.168.10.250 helbidera banatzen du
 
 ## 2. DNS
 
-DNSan core.lan zona dago, eta 192.168.10 sarearen alderantzizko zona.
+DNS zerbitzua ere WS_T6 zerbitzarian dago. Zona hauek ditu:
+
+| Zona | Mota | Zertarako |
+|---|---|---|
+| core.lan | Zuzenekoa, Active Directoryn integratua | Domeinua: zerbitzaria eta bezeroak |
+| _msdcs.core.lan | Zuzenekoa, Active Directoryn integratua | Domeinu-kontrolatzaileak aurkitzeko erregistroak |
+| core.eus | Zuzenekoa, Active Directoryn integratua | Web zerbitzuak: www eta jitsi |
+| 10.168.192.in-addr.arpa | Alderantzizkoa | IPtik izenera itzultzeko |
+
+Zonak Active Directoryn integratuta daude, domeinuaren datuekin batera gorde eta erreplikatzeko.
 
 ![DNS zonak](Irudiak/05-dns-zonak.png)
 
 ![core.lan zonaren erregistroak](Irudiak/06-dns-erregistroak.png)
+
+Bezero batetik (WIN11BEZ2) nslookup bidez egiaztatu dugu ebazpena. www.core.eus eta jitsi.core.eus izenak ondo ebazten dira, eta 192.168.10.3 helbidetik jitsi.core.eus izenera ere bai (alderantzizkoa). 192.168.10.1 helbideak, ordea, ez du PTR erregistrorik oraindik.
+
+![nslookup bezerotik: zuzeneko eta alderantzizko kontsultak](Irudiak/szi-28-nslookup.png)
 
 ## 3. Audio eta bideo zerbitzua: Jitsi Meet
 

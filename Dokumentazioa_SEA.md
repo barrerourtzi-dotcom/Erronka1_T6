@@ -19,6 +19,8 @@ Instalatuta dituen rolak hauek dira:
 | Rola | Zergatik instalatu dugun |
 |---|---|
 | AD DS | Direktorioa da. Erabiltzaileak zerbitzarian egiaztatzen dira, ez ekipo bakoitzean. |
+| DNS | core.lan eta core.eus zonak. Xehetasunak SZI dokumentazioan. |
+| DHCP | Bezeroei IPa, atebidea eta DNSa banatzeko. Xehetasunak SZI dokumentazioan. |
 | Fitxategi-zerbitzaria | LANGILEAK karpeta partekaturako; hor daude sailen karpetak eta karpeta pertsonalak. |
 | Inprimaketa-zerbitzaria | Inprimagailuak zerbitzaritik partekatzeko. |
 
@@ -30,7 +32,7 @@ Instalatuta dituen rolak hauek dira:
 |---|---|---|---|
 | WS_T6 | Domeinu-kontrolatzailea | 192.168.10.1 | CORE\Administrador |
 | WIN11BEZ1 | Windows 11 bezeroa | 192.168.10.40 (DHCP erreserba) | |
-| WIN11BEZ2 | Windows 11 bezeroa | 192.168.10.102 (DHCP) | |
+| WIN11BEZ2 | Windows 11 bezeroa | 192.168.10.102 (finkoa) | |
 | pfSense | Bideratzailea eta suebakia | 192.168.10.254 | |
 
 ## 2. Antolakuntza-unitateak, erabiltzaileak eta taldeak
@@ -60,7 +62,7 @@ Arduradunak taldea arduradunentzat da. Oraingoz Urtzi bakarrik dago.
 | Luis Tellabide | ltellabide | Giza Baliabideak | Giza Baliabideak |
 | Estibaliz Zendoia | | Giza Baliabideak | Giza Baliabideak |
 | Iker Herran | iherran | Erosketak | Erosketak |
-| Jon Galarza | | Erosketak | Erosketak |
+| Jon Galarza | jgalarza | Erosketak | Erosketak |
 
 Kontuek izenaren lehen letra eta abizena dituzte.
 
@@ -76,7 +78,11 @@ Kontuek izenaren lehen letra eta abizena dituzte.
 
 ## 3. Bezeroak
 
-Bi Windows 11 sartu ditugu domeinuan: WIN11BEZ1 eta WIN11BEZ2. IPa zerbitzariaren DHCPtik hartzen dute, beraz haren tarte berean daude.
+Bi Windows 11 sartu ditugu domeinuan: WIN11BEZ1 eta WIN11BEZ2. WIN11BEZ1 ekipoak DHCP bidez hartzen du IPa (erreserba batekin, 192.168.10.40) eta WIN11BEZ2 ekipoak IP finkoa du, 192.168.10.102. Biak zerbitzariaren tarte berean daude eta DNS zerbitzari gisa WS_T6 dute.
+
+WIN11BEZ2 ekipoan egiaztatu dugu: Jon Galarza domeinuko erabiltzailearekin (core\jgalarza) saioa hasita, ekipoak 192.168.10.102 IPa, 192.168.10.254 atebidea, 192.168.10.1 DNS zerbitzaria eta core.lan DNS atzizkia ditu.
+
+![WIN11BEZ2: whoami eta ipconfig](Irudiak/sea-22-bezeroa-ipconfig.png)
 
 WIN11BEZ1 ekipoaren kontua IT OUra eraman dugu. WIN11BEZ2 ekipoarena Computers edukiontzian dago oraindik; ekipo bat domeinuan sartzean hor agertzen da.
 
@@ -85,6 +91,10 @@ WIN11BEZ1 ekipoaren kontua IT OUra eraman dugu. WIN11BEZ2 ekipoarena Computers e
 ## 4. Talde-gidalerroak
 
 Bost GPO sortu ditugu. Denak erabiltzailearen konfiguraziokoak dira, aldatzen dena saioa nork hasten duen araberakoa delako eta ez ekipoaren araberakoa.
+
+Bezeroan gpresult komandoarekin egiaztatu dugu GPOak aplikatzen direla. Jon Galarzari lau GPO aplikatzen zaizkio (Pantailako atzeko planoa, Mapeatu, MapeatuPertsonala eta IMP_Finantzak) eta Erosketak taldean dago.
+
+![WIN11BEZ2: gpresult, aplikatutako GPOak eta taldeak](Irudiak/sea-23-bezeroa-gpresult.png)
 
 ![Core OUari estekatutako GPOak](Irudiak/14-gpo-estekak.png)
 
@@ -108,6 +118,10 @@ Core OUari estekatuta dago. GPO bakarra erabili dugu taldekako iragazkiekin, OU 
 
 Erabiltzaile bakoitzaren karpeta pertsonala sortzen du \\\\Ws_t6\langileak\Pertsonalak karpetan, bere kontuaren izenarekin. %username% aldagaia erabili dugu karpetak banan-banan ez sortzeko. Erabiltzailearen beraren baimenekin exekutatzen da, karpeta bere izenean gera dadin.
 
+Bezeroan bi unitateak konektatuta daude: P: Erosketak saileko karpetara eta U: Jon Galarzaren karpeta pertsonalera.
+
+![WIN11BEZ2: P: eta U: unitateak eta inprimagailuak](Irudiak/sea-24-bezeroa-unitateak-inprimagailuak.png)
+
 ![MapeatuPertsonala GPOaren konfigurazioa](Irudiak/17-gpo-mapeatu-pertsonala.png)
 
 ### 4.4 IMP_Finantzak eta IMP_GizaBaliabideak
@@ -120,7 +134,13 @@ GPO bidez egin ditugu, erabiltzaileak saioa hastean inprimagailua izan dezan eze
 
 ## 5. Inprimaketa
 
-### 5.1 Inprimagailuak
+### 5.1 Inprimaketa-sistemaren funtzionamendua
+
+Inprimagailuak WS_T6 zerbitzarian instalatuta eta partekatuta daude. Bezeroek ez dute inprimagailua beren ekipoan instalatzen: zerbitzariko inprimagailu partekatura konektatzen dira eta kontrolatzailea zerbitzaritik jaisten dute. Bezero batek inprimatzen duenean, lana zerbitzariko ilarara doa (Spooler zerbitzua) eta zerbitzariak bidaltzen dio inprimagailuari. Horrela kontrolatzaileak, ilara eta baimenak leku bakarrean kudeatzen dira.
+
+Linux-en sistema bera CUPS bidez egiten da: CUPS-ek inprimagailuak partekatzen ditu sarean eta Windows bezeroek WSD bidez aurkitzen dituzte.
+
+### 5.2 Inprimagailuak
 
 Bi inprimagailu instalatu ditugu WS_T6 zerbitzarian, bat finantzetarako eta bestea giza baliabideetarako, sail horiek inprimatzen dituzten dokumentuak ez direlako besteenekin nahastu behar.
 
@@ -135,13 +155,13 @@ Portu lokalak eta kontrolatzaile generikoa erabili ditugu, ingurune birtualean e
 
 ![Finantzak_Imprimagailua partekatzeko aukerak](Irudiak/20-inprimagailua-partekatu.png)
 
-### 5.2 Baimenak
+### 5.3 Baimenak
 
 Bi inprimagailuek berezko baimena dute oraindik, eta horrekin Todos taldeak inprimatzen du. Dagozkien baimenak hauek dira: inprimatu, saileko taldeak; dokumentuak administratu, Arduradunak taldeak; inprimagailua administratu, IT taldeak eta administratzaileek.
 
 ![Finantzak_Imprimagailua inprimagailuaren segurtasuna](Irudiak/21-inprimagailua-segurtasuna.png)
 
-### 5.3 Portuak eta protokoloak
+### 5.4 Portuak eta protokoloak
 
 | Protokoloa | Portua | Non erabiltzen den |
 |---|---|---|
@@ -151,3 +171,20 @@ Bi inprimagailuek berezko baimena dute oraindik, eta horrekin Todos taldeak inpr
 | LPD | TCP 515 | Windows-eko LPD zerbitzua eta cups-lpd Linuxen |
 | RAW | TCP 9100 | Sareko inprimagailuak |
 | mDNS | UDP 5353 | CUPSeko inprimagailuen iragarpena sarean |
+
+### 5.5 Probak bezerotik
+
+WIN11BEZ2 bezeroan bi inprimagailu daude: zerbitzariko Finantzak_Imprimagailua (IMP_Finantzak GPOak instalatua) eta Erosketako imprimagailuak, servidor izeneko Linux makinako CUPS-ek WSD bidez partekatua.
+
+![WIN11BEZ2 bezeroko inprimagailuak](Irudiak/sea-25-bezeroa-inprimagailuak.png)
+
+Bi inprimagailuetan proba-orria inprimatu dugu:
+
+| Inprimagailua | Zerbitzaria | Emaitza |
+|---|---|---|
+| Erosketako imprimagailuak | Linux (CUPS) | Lana bidali da eta ilara hutsik geratu da |
+| Finantzak_Imprimagailua | WS_T6 (Windows) | Errorea: inprimagailuak ez du orria inprimatu |
+
+Finantzak_Imprimagailua inprimagailuak errorea ematen du, zerbitzarian IMP_F portu lokal batera konektatuta dagoelako eta portu horren atzean ez dagoelako gailurik. Konpontzeko portua aldatu behar da zerbitzarian.
+
+![Proba-orriaren errorea Finantzak_Imprimagailua inprimagailuan](Irudiak/sea-26-proba-orria-errorea.png)

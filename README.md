@@ -9,9 +9,10 @@ Core enpresarentzako informatika-azpiegitura diseinatu eta muntatu dugu: Windows
 | Sistema eragileen administrazioa (SEA) | [Dokumentazioa_SEA](Dokumentazioa_SEA.md) |
 | Sareko zerbitzuak (SZI) | [Dokumentazioa_SZI](Dokumentazioa_SZI.md) |
 | Sistema banatuak (SB) | [Dokumentazioa_SB](Dokumentazioa_SB.md) |
-| Web aplikazioen ezarpena (WAE): GLPI, GitHub eta plangintza | [Dokumentazioa_WAE](Dokumentazioa_WAE.md) |
+| Web aplikazioen ezarpena (WAE): GLPI, WordPress, GitHub eta plangintza | [Dokumentazioa_WAE](Dokumentazioa_WAE.md) |
 | Datu-baseak eta segurtasuna | [Datu_Base_eta_Segurtasun_Estrategia](Datu_Base_eta_Segurtasun_Estrategia.md) |
 | Hardwarea: aurrekostua, osagaiak eta tailerra | [Dokumentazioa_HW](Dokumentazioa_HW.md) |
+| Jasangarritasuna | [Jasangarritasun_Plana-Core](Jasangarritasun_Plana-Core.md) |
 
 ## Azpiegitura laburki
 

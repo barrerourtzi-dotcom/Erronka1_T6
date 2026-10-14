@@ -35,7 +35,7 @@ title: 1. Erronka
   <a class="card" href="Dokumentazioa_WAE.html">
     <div class="card-icon">◎</div>
     <h3>WAE</h3>
-    <p>GLPI, GitHub biltegia eta plangintza.</p>
+    <p>GLPI, WordPress, GitHub biltegia eta plangintza.</p>
   </a>
   <a class="card" href="Dokumentazioa_HW.html">
     <div class="card-icon">⚙</div>
@@ -47,6 +47,11 @@ title: 1. Erronka
     <h3>Datu-baseak</h3>
     <p>MySQL eta MongoDB, erabiltzaileak eta baimenak.</p>
   </a>
+  <a class="card" href="Jasangarritasun_Plana-Core.html">
+    <div class="card-icon">♻</div>
+    <h3>Jasangarritasuna</h3>
+    <p>Core-ren jasangarritasun plana: ingurumena, gizartea eta gobernantza.</p>
+  </a>
 </div>
 
 ## Azpiegitura laburki
@@ -54,6 +59,7 @@ title: 1. Erronka
 | Ekipoa | Funtzioa | IP helbidea |
 |---|---|---|
 | WS_T6 | Windows Server, core.lan domeinuko kontrolatzailea, DNS eta DHCP | 192.168.10.1 |
+| USWordpress | Ubuntu Server, WordPress (www.core.eus) | 192.168.10.2 |
 | JitsiErronka | Ubuntu Server, Jitsi Meet (jitsi.core.eus) | 192.168.10.3 |
 | WIN11BEZ1, WIN11BEZ2 | Windows 11 bezeroak | 192.168.10.40, 192.168.10.102 |
 | PFSENSE | core.lan sarearen atebidea | 192.168.10.254 |
