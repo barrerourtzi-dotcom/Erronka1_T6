@@ -223,7 +223,7 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | GPOak sortu eta estekatu | Eginda |
 | Inprimagailuak Windows Server-en partekatu | Eginda |
 | Inprimagailuen baimenak saileko taldeei eman | Egiteke |
-| Zerbitzuak eta prozesuak kudeatu (IE2) | Egiteke |
+| Zerbitzuak eta prozesuak kudeatu (IE2) | Egiten |
 | Bezeroaren ebidentziak (IP, GPOak, unitateak) | Eginda |
 | Inprimaketa Linuxen CUPSekin eta sistemen artean | Egiten |
 

@@ -188,3 +188,42 @@ Bi inprimagailuetan proba-orria inprimatu dugu:
 Finantzak_Imprimagailua inprimagailuak errorea ematen du, zerbitzarian IMP_F portu lokal batera konektatuta dagoelako eta portu horren atzean ez dagoelako gailurik. Konpontzeko portua aldatu behar da zerbitzarian.
 
 ![Proba-orriaren errorea Finantzak_Imprimagailua inprimagailuan](Irudiak/sea-26-proba-orria-errorea.png)
+
+## 6. Prozesuak eta zerbitzuak
+
+### 6.1 Active Directoryren zerbitzuak
+
+Active Directory hainbat Windows zerbitzuren gainean dabil. Zerbitzuak kontsolan (services.msc) kudeatzen dira: hautatutako zerbitzua Detener, Iniciar edo Reiniciar estekekin geldiarazi, abiarazi edo berrabiarazten da, eta Estado zutabean egoera ikusten da. Services de dominio de Active Directory zerbitzua martxan dago eta Automático abioa du, zerbitzaria piztean bakarrik abiarazteko.
+
+| Zerbitzua | Izena | Funtzioa |
+|---|---|---|
+| Servicios de dominio de Active Directory | NTDS | Direktorioaren datu-basea |
+| Net Logon | Netlogon | Domeinuko saio-hasierak |
+| Servidor DNS | DNS | Izenen ebazpena |
+| Servidor DHCP | DHCPServer | IPen banaketa |
+| Replicación DFS | DFSR | SYSVOL karpetaren erreplikazioa (GPOak) |
+| Servicios web de Active Directory | ADWS | Active Directoryko PowerShell modulua |
+
+![Servicios kontsola: Active Directoryko domeinu-zerbitzuak martxan](Irudiak/sea-27-zerbitzuak-adds.png)
+
+NTDS geldiaraziz gero, domeinuko erabiltzaileek ezin dute saioa hasi eta menpeko zerbitzuak ere gelditzen dira (KDC, DNS eta DFSR). Horregatik, zerbitzaria lanean dagoela ez da geldiarazi behar; mantentze-lanetarako bakarrik.
+
+### 6.2 Prozesuak
+
+Prozesuak Administrador de tareas tresnarekin kontrolatzen ditugu:
+
+- **Procesos** fitxan aplikazioak eta atzeko planoko prozesuak ikusten dira, bakoitzak erabiltzen duen CPU eta memoriarekin.
+- **Detalles** fitxan prozesu bakoitzaren PIDa, egoera eta erabiltzailea agertzen dira. Hemendik prozesu bat amaitu edo bere lehentasuna alda daiteke (eskuineko botoia).
+- **Servicios** fitxan zerbitzu bakoitza zein prozesutan dagoen ikusten da PIDaren bidez.
+
+![Administrador de tareas: prozesuak](Irudiak/sea-28-prozesuak.png)
+
+Active Directory lsass.exe prozesuaren barruan dabil. Detalles fitxan lsass.exe prozesuak 668 PIDa du, eta Servicios fitxan NTDS eta Netlogon zerbitzuek PID bera dute. Beraz, lsass.exe ez da inoiz amaitu behar: amaituz gero, zerbitzaria berrabiarazten da.
+
+![Detalles fitxa: lsass.exe, 668 PIDa](Irudiak/sea-29-xehetasunak-lsass.png)
+
+![Servicios fitxa: NTDS eta Netlogon 668 PIDarekin](Irudiak/sea-30-zerbitzuak-ntds.png)
+
+Rendimiento fitxan zerbitzariaren baliabideak ikusten dira: 4 prozesadore birtual eta 8 GB RAM ditu, eta lanean ari denean CPUaren %1 eta memoriaren %21 erabiltzen ditu. Hemendik Monitor de recursos ere ireki daiteke, prozesu bakoitzaren disko eta sare erabilera ikusteko.
+
+![Rendimiento fitxa: CPU eta memoria](Irudiak/sea-31-errendimendua.png)
