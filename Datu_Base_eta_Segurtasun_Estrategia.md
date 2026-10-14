@@ -80,13 +80,13 @@ XAMPP erabili dugunez, XAMPP-eko karpetan egongo da. Kokalekua hau da:
 
 Adibidez, portua hortik aldatu dezakegu. Gu defektuzkoa utziko dugu, beste zerbitzurik ez dagoelako portu horretan.
 
-![my.ini fitxategiaren konfigurazioa (portua)](./image9.png)
+![my.ini fitxategiaren konfigurazioa (portua)](Irudiak/MySQL-conf.png)
 
 Hemen hainbat konfigurazio aldatu ditzakegu:
 
 - Bind-address bat gehitu, hau da, datu-basera sartzeko beste IPak baimendu. Gure kasuan ez ditugu gehituko, localhost-etik sartuko garelako.
 
-![my.ini fitxategiaren konfigurazio gehiago](./image8.png)
+![my.ini fitxategiaren konfigurazio gehiago](Irudiak/MySQL-conf2.png)
 
 ### MongoDB
 
@@ -96,7 +96,7 @@ MongoDB erabili dugunez, MongoDBren instalazio-karpetan egongo da konfigurazio f
 
 `C:\Program Files\MongoDB\Server\8.3\bin\mongod.cfg`
 
-![mongod.cfg fitxategiaren edukia](./image2.png)
+![mongod.cfg fitxategiaren edukia](Irudiak/MongoDB-conf.png)
 
 **Zer aldatu dezakegu?**
 
