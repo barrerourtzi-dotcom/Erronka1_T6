@@ -1,4 +1,4 @@
-# CORE Segurtasun Plana
+# CORE Jasangarritasun Plana
 
 Aplikazio-eremua: Supermerkatu ekologikoen eta hurbilekoen (0 Km) kudeaketa integrala.
 
