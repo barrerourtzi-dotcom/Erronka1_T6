@@ -1,22 +1,53 @@
 ---
-layout: default
-title: Hasiera
+title: 1. Erronka
 ---
 
-# 1. Erronka: T6 taldea
-
-Core enpresarentzako informatika-azpiegitura diseinatu eta muntatu dugu: Windows Server domeinua, sareko zerbitzuak, Proxmox birtualizazio-zerbitzaria, GLPI ekipoak eta intzidentziak kudeatzeko, datu-baseak eta azpiegitura osoaren aurrekostua.
+<div class="hero">
+  <h1>1. Erronka: T6 taldea</h1>
+  <p>Core enpresarentzako informatika-azpiegitura diseinatu eta muntatu dugu: Windows Server domeinua, sareko zerbitzuak, Proxmox birtualizazioa, GLPI, datu-baseak eta azpiegitura osoaren aurrekostua.</p>
+  <div class="tags">
+    <span>core.lan</span>
+    <span>Windows Server</span>
+    <span>Proxmox VE</span>
+    <span>GLPI</span>
+    <span>Jitsi Meet</span>
+  </div>
+</div>
 
 ## Dokumentazioa
 
-| Ikasgaia | Edukia | Dokumentua |
-|---|---|---|
-| SEA: Sistema eragileen administrazioa | Active Directory, OUak, erabiltzaileak, GPOak eta inprimaketa | [Dokumentazioa SEA](Dokumentazioa_SEA.md) |
-| SZI: Sareko zerbitzuak | DHCP, DNS eta Jitsi Meet audio eta bideo zerbitzua | [Dokumentazioa SZI](Dokumentazioa_SZI.md) |
-| SB: Sistema banatuak | Proxmox, makina birtualak, edukiontzia eta erabilgarritasun handia | [Dokumentazioa SB](Dokumentazioa_SB.md) |
-| WAE: Web aplikazioen ezarpena | GLPI, GitHub biltegia eta plangintza | [Dokumentazioa WAE](Dokumentazioa_WAE.md) |
-| HW: Hardwarea | Aurrekostua, osagaiak, tresnak, hondakinak eta tailerra | [Dokumentazioa HW](Dokumentazioa_HW.md) |
-| Datu-baseak eta segurtasuna | MySQL eta MongoDB, erabiltzaileak eta baimenak | [Datu-base eta segurtasun estrategia](Datu_Base_eta_Segurtasun_Estrategia.md) |
+<div class="cards">
+  <a class="card" href="Dokumentazioa_SEA.html">
+    <div class="card-icon">◧</div>
+    <h3>SEA</h3>
+    <p>Active Directory, OUak, erabiltzaileak, GPOak eta inprimaketa.</p>
+  </a>
+  <a class="card" href="Dokumentazioa_SZI.html">
+    <div class="card-icon">⇄</div>
+    <h3>SZI</h3>
+    <p>DHCP, DNS eta Jitsi Meet audio eta bideo zerbitzua.</p>
+  </a>
+  <a class="card" href="Dokumentazioa_SB.html">
+    <div class="card-icon">▦</div>
+    <h3>SB</h3>
+    <p>Proxmox, makina birtualak, edukiontzia eta erabilgarritasun handia.</p>
+  </a>
+  <a class="card" href="Dokumentazioa_WAE.html">
+    <div class="card-icon">◎</div>
+    <h3>WAE</h3>
+    <p>GLPI, GitHub biltegia eta plangintza.</p>
+  </a>
+  <a class="card" href="Dokumentazioa_HW.html">
+    <div class="card-icon">⚙</div>
+    <h3>HW</h3>
+    <p>Aurrekostua, osagaiak, tresnak, hondakinak eta tailerra.</p>
+  </a>
+  <a class="card" href="Datu_Base_eta_Segurtasun_Estrategia.html">
+    <div class="card-icon">⛁</div>
+    <h3>Datu-baseak</h3>
+    <p>MySQL eta MongoDB, erabiltzaileak eta baimenak.</p>
+  </a>
+</div>
 
 ## Azpiegitura laburki
 

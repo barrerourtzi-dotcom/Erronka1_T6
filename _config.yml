@@ -1,8 +1,8 @@
 # GitHub Pages konfigurazioa
 title: "1. Erronka: T6 taldea"
 description: "Core enpresaren azpiegituraren dokumentazioa"
-theme: jekyll-theme-cayman
 lang: eu
+baseurl: "/Erronka1_T6"
 
 markdown: kramdown
 kramdown:
@@ -21,6 +21,12 @@ relative_links:
 titles_from_headings:
   enabled: true
   strip_title: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
 
 exclude:
   - README.md
