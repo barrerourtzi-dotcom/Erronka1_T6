@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'eu' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title | default: site.title }} | {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/erronka.css' | relative_url }}">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Menua ireki" aria-expanded="false">☰</button>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-badge">T6</span>
+      <span class="brand-text">
+        <strong>1. Erronka</strong>
+        <small>Core enpresa</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <p class="nav-label">Dokumentazioa</p>
+      <ul>
+        {% for item in site.data.nav %}
+        {% assign active = false %}
+        {% if page.url == item.url %}{% assign active = true %}{% endif %}
+        {% if item.url == "/" and page.url == "/index.html" %}{% assign active = true %}{% endif %}
+        <li class="{% if active %}active{% endif %}">
+          <a href="{{ item.url | relative_url }}">
+            <span class="nav-icon">{{ item.icon }}</span>
+            <span class="nav-text">
+              <span class="nav-title">{{ item.title }}</span>
+              {% if item.subtitle %}<span class="nav-sub">{{ item.subtitle }}</span>{% endif %}
+            </span>
+          </a>
+          {% if active and item.url != "/" %}<ul class="toc" id="toc"></ul>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <a class="repo-link" href="https://github.com/barrerourtzi-dotcom/Erronka1_T6">GitHub biltegia ↗</a>
+  </aside>
+
+  <main class="content">
+    <article class="doc">
+      {{ content }}
+    </article>
+    <footer class="footer">T6 taldea · 1. Erronka</footer>
+  </main>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      toggle.addEventListener('click', function () {
+        var open = sidebar.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+
+      // Uneko orriaren atalak alboko barran
+      var toc = document.getElementById('toc');
+      if (toc) {
+        document.querySelectorAll('.doc h2[id]').forEach(function (h) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent;
+          a.addEventListener('click', function () { sidebar.classList.remove('open'); });
+          li.appendChild(a);
+          toc.appendChild(li);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

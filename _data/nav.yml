@@ -1,0 +1,27 @@
+- title: Hasiera
+  url: /
+  icon: "⌂"
+- title: SEA
+  subtitle: Sistema eragileen administrazioa
+  url: /Dokumentazioa_SEA.html
+  icon: "◧"
+- title: SZI
+  subtitle: Sareko zerbitzuak
+  url: /Dokumentazioa_SZI.html
+  icon: "⇄"
+- title: SB
+  subtitle: Sistema banatuak
+  url: /Dokumentazioa_SB.html
+  icon: "▦"
+- title: WAE
+  subtitle: Web aplikazioak
+  url: /Dokumentazioa_WAE.html
+  icon: "◎"
+- title: HW
+  subtitle: Hardwarea
+  url: /Dokumentazioa_HW.html
+  icon: "⚙"
+- title: Datu-baseak
+  subtitle: Datu-base eta segurtasun estrategia
+  url: /Datu_Base_eta_Segurtasun_Estrategia.html
+  icon: "⛁"
