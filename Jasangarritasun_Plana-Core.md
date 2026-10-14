@@ -8,7 +8,7 @@ Gure enpresan jasangarritasuna honela ulertzen dugu: egungo beharrak asetzeko ga
 
 **Nazioarteko Esparru Nagusiak:**
 
-- Nations Batuen Garapen Jasangarriaren Helburuak (GJH / ODS): Gure planak bereziki laguntzen die GJH 8 (Lan duina eta hazkunde ekonomikoa), GJH 12 (Egoizpen eta kontsumo arduratsuak), GJH 13 (Klimaren aldeko ekintza) eta GJH 15 (Lorratzeko ekosistemen bizitza) helburuei.
+- Nazio Batuen Garapen Jasangarriaren Helburuak (GJH / ODS): Gure planak bereziki laguntzen die GJH 8 (Lan duina eta hazkunde ekonomikoa), GJH 12 (Egoizpen eta kontsumo arduratsuak), GJH 13 (Klimaren aldeko ekintza) eta GJH 15 (Lorratzeko ekosistemen bizitza) helburuei.
 - Nazio Batuen Global Compact (Mundu Mailako Hitzarmena): Giza eskubideen, lan-arauen, ingurumenaren eta ustelkeriaren aurkako printzipio unibertsalak betetzeko konpromisoa.
 - GRI (Global Reporting Initiative) eta ESG Esparrua: Ingurumen, gizarte eta gobernantza (ESG) arloetako adierazleen araberako kudeaketa eta gardentasun-erreportajea.
 
