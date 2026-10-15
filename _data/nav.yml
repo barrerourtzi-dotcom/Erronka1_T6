@@ -17,6 +17,10 @@
   subtitle: Web aplikazioak
   url: /Dokumentazioa_WAE.html
   icon: "◎"
+- title: SEG
+  subtitle: Segurtasuna
+  url: /Dokumentazioa_SEG.html
+  icon: "🔒"
 - title: HW
   subtitle: Hardwarea
   url: /Dokumentazioa_HW.html
