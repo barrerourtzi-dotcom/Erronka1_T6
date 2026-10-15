@@ -37,6 +37,11 @@ title: 1. Erronka
     <h3>WAE</h3>
     <p>GLPI, WordPress, GitHub biltegia eta plangintza.</p>
   </a>
+  <a class="card" href="Dokumentazioa_SEG.html">
+    <div class="card-icon">🔒</div>
+    <h3>SEG</h3>
+    <p>Kontingentzia-plana, pasahitzak, sarbide fisikoa, suebakia, VPN eta IDS.</p>
+  </a>
   <a class="card" href="Dokumentazioa_HW.html">
     <div class="card-icon">⚙</div>
     <h3>HW</h3>

@@ -11,6 +11,7 @@ Core enpresarentzako informatika-azpiegitura diseinatu eta muntatu dugu: Windows
 | Sistema banatuak (SB) | [Dokumentazioa_SB](Dokumentazioa_SB.md) |
 | Web aplikazioen ezarpena (WAE): GLPI, WordPress, GitHub eta plangintza | [Dokumentazioa_WAE](Dokumentazioa_WAE.md) |
 | Datu-baseak eta segurtasuna | [Datu_Base_eta_Segurtasun_Estrategia](Datu_Base_eta_Segurtasun_Estrategia.md) |
+| Segurtasuna (SEG) | [Dokumentazioa_SEG](Dokumentazioa_SEG.md) |
 | Hardwarea: aurrekostua, osagaiak eta tailerra | [Dokumentazioa_HW](Dokumentazioa_HW.md) |
 | Jasangarritasuna | [Jasangarritasun_Plana-Core](Jasangarritasun_Plana-Core.md) |
 
