@@ -88,7 +88,7 @@ WIN11BEZ1 ekipoaren kontua IT OUra eraman dugu. WIN11BEZ2 ekipoarena Computers e
 
 ![WIN11BEZ1 ekipoa IT OUan](Irudiak/13-it-ou-bezeroa.png)
 
-## 4. Talde-gidalerroak
+## 4. GPO-ak
 
 Bost GPO sortu ditugu. Denak erabiltzailearen konfiguraziokoak dira, aldatzen dena saioa nork hasten duen araberakoa delako eta ez ekipoaren araberakoa.
 
