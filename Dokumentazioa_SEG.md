@@ -237,15 +237,19 @@ Lehenengo asteetan IDS moduan uzten dugu, alerta faltsuak ikusteko eta arauak do
 
 ## 8. HTTPS
 
-WordPress eta GLPI orain HTTP bidez dabiltza (80 portua), beraz pasahitzak eta datuak testu argian bidaltzen dira sarean. HTTPS jartzea proposatzen dugu:
+HTTPS-k nabigatzailearen eta zerbitzariaren arteko trafikoa zifratzen du, eta ziurtagiri batek zerbitzaria benetan dena dela bermatzen du. Nabigatzaileak orria segurutzat erakusten du (giltzarrapoa) zerbitzariak nabigatzaileak konfiantzazkotzat duen ziurtagiri bat duenean bakarrik.
 
-| Zerbitzua | Egoera | Proposamena |
-|---|---|---|
-| WordPress (www.core.eus) | HTTP | Let's Encrypt ziurtagiria Apache-n eta 80tik 443ra birbideratzea. Publikoa denez, ziurtagiri publiko bat behar du |
-| GLPI | HTTP | Barne-ziurtagiria, domeinuko ziurtagiri-agintaritzarekin (AD CS) edo autosinatua |
-| Jitsi Meet | HTTPS | Dagoeneko HTTPS bidez dabil (443) |
-| Proxmox | HTTPS | Dagoeneko HTTPS bidez dabil (8006) |
-| pfSense | HTTPS | Web kudeaketa HTTPS bidez |
+Gaur egun Jitsi Meet da orri segurua erakusten duen zerbitzu bakarra (https://jitsi.core.eus). Gainerakoetan:
+
+| Zerbitzua | Egoera | Nabigatzaileak erakusten duena | Proposamena |
+|---|---|---|---|
+| Jitsi Meet (jitsi.core.eus) | HTTPS, ziurtagiri baliozkoarekin | Segurua | Dagoen bezala utzi |
+| WordPress (www.core.eus) | HTTP (80) | "No es seguro" | HTTPS gaitu Apache-n (443), ziurtagiriarekin, eta 80tik 443ra birbideratu. Webgune publikoa denez, Let's Encrypt-en ziurtagiri publikoa |
+| GLPI | HTTP (80) | "No es seguro" | HTTPS gaitu, domeinuko ziurtagiri-agintaritzak (AD CS) sinatutako ziurtagiriarekin |
+| Proxmox (8006) | HTTPS, ziurtagiri autosinatuarekin | "No es seguro" | Zifratuta dago, baina ziurtagiria ez da konfiantzazkoa. AD CS-ren ziurtagiria jarri |
+| pfSense (web kudeaketa) | HTTPS, ziurtagiri autosinatuarekin | "No es seguro" | Proxmox bezala |
+
+WordPress eta GLPI dira premiazkoenak: HTTP hutsean daudenez, saio-hasierako pasahitzak testu argian bidaltzen dira sarean, eta sare berean dagoen edonork irakur ditzake. Barne-zerbitzuetarako, WS_T6 zerbitzarian Active Directory Certificate Services (AD CS) rola instalatzea proposatzen dugu. Enpresaren ziurtagiri-agintaritza GPO bidez banatzen zaie domeinuko ekipo guztiei, eta hark sinatutako ziurtagiriekin barne-zerbitzuak ere seguru gisa agertuko lirateke.
 
 ## 9. Ezarpenaren egoera
 
@@ -259,4 +263,4 @@ WordPress eta GLPI orain HTTP bidez dabiltza (80 portua), beraz pasahitzak eta d
 | Suebakiaren arauak | Proposatuak |
 | VPN | Proposatua |
 | IDS (Suricata) | Proposatua |
-| HTTPS | Jitsi, Proxmox eta pfSense-n bai; WordPress eta GLPIn proposatua |
+| HTTPS (orri segurua) | Jitsi-n bakarrik; WordPress eta GLPIn proposatua |
