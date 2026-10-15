@@ -149,13 +149,18 @@ WordPress lehenengo aldiz IP helbidetik instalatu genuen, eta horregatik www.cor
 
 ### 2.3 Erabiltzaileak
 
-| Erabiltzailea | Posta | Rola |
-|---|---|---|
-| Admin | administrador@uni.eus | Administratzailea |
-| barrero.urtzi | barrero.urtzi@uni.eus | Administratzailea |
+Webgunearen erabiltzaileak domeinuko langileak dira, izen berarekin. Bakoitzari bere lanerako behar duen baimen minimoa eman diogu, eta horregatik bost rol desberdin daude:
 
-Admin instalazioan sortutako kontua da. barrero.urtzi webgunea egunero kudeatzeko erabiltzen dugu, instalazioko kontua erabili gabe.
+| Erabiltzailea | Izena | Saila | Rola | Zer egin dezake |
+|---|---|---|---|---|
+| Admin | Admin | | Administratzailea | Instalazioan sortutako kontua. Larrialdietarako bakarrik |
+| barrero.urtzi | Urtzi Barrero | IT (arduraduna) | Administratzailea | Dena: gaiak, pluginak, ezarpenak eta erabiltzaileak |
+| obravo | Oier Bravo | IT | Editorea | Eduki guztia argitaratu eta editatu, besteena ere, eta iruzkinak moderatu |
+| iherran | Iker Herran | Erosketak | Egilea | Bere edukia argitaratu eta irudiak igo: ekoizle eta produktu berriak |
+| jgalarza | Jon Galarza | Erosketak | Laguntzailea | Zirriborroak idatzi; editore batek berrikusi behar ditu argitaratu aurretik |
+| ltellabide | Luis Tellabide | Giza Baliabideak | Harpideduna | Edukia irakurri eta bere profila aldatu |
 
+Urtzi IT saileko arduraduna denez, administratzailea da eta webgunearen konfigurazioa kudeatzen du. Oierrek edukia berrikusi eta argitaratzen du. Erosketak sailean Ikerrek produktu eta ekoizle berriak argitaratzen ditu, eta Jonek zirriborroak bakarrik idazten ditu, beraz bere lana beti berrikusten da. Luisek ez du edukia aldatu behar. Horrela inork ez du behar duena baino baimen gehiago, eta pasahitz bat lapurtuz gero kaltea txikiagoa da.
 ![WordPress-eko erabiltzaileak](Irudiak/wae-02-wordpress-erabiltzaileak.png)
 
 ### 2.4 Gaiak
@@ -248,7 +253,7 @@ T6 taldea. Erronkaren zereginak moduluka eta bakoitzaren egoera.
 | GitHub biltegia eta adarrak sortu | Eginda |
 | GitHub Pages argitaratu | Eginda |
 | WordPress instalatu eta www.core.eus helbidean jarri | Eginda |
-| WordPress erabiltzaileak rol desberdinekin | Egiteke |
+| WordPress erabiltzaileak rol desberdinekin | Eginda |
 
 #### Hardwarea
 
